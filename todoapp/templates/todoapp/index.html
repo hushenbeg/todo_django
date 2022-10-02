@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Todo App</title>
+</head>
+<body>
+    <div class="container"  class="p-3 mb-2 bg-warning text-dark">
+        <div class="row m-5">
+            <div class="col-md-12">
+                <h1>Welcome to TODO Applications</h1>
+                <a href="{% url 'add_task' %}" class="btn btn-primary">Add Task</a>
+                <a href="{% url 'view_task' %}" class="btn btn-primary">View Task</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
