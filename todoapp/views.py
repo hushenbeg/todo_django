@@ -28,11 +28,18 @@ def view_task(request):
 
 def delete_task(request, id):
 
-    delete_items = AddTask.objects.get(id=id)
+    task = AddTask.objects.get(id=id)
 
-    delete_items.delete()
+    context = {
+        'task':task,
+    }
 
-    return render(request, 'todoapp/delete.html', {'delete_items':delete_items})
+    if request.method == 'POST':
+        task.delete()
+        return redirect('/todoapp/view_task')
+
+    return render(request, 'todoapp/delete.html', context)
+
 
 def update_task(request, id):
 
@@ -42,6 +49,10 @@ def update_task(request, id):
         update_items.name = request.POST.get("name","")
         update_items.priority = request.POST.get("priority","")
         update_items.save()
-        redirect('todoapp/view.html')
+        return redirect('/todoapp/view_task')
+    
+    context = {
+        'update_items':update_items
+    }
 
-    return render(request, 'todoapp/update.html', {'update_items': update_items})
+    return render(request, 'todoapp/update.html', context)

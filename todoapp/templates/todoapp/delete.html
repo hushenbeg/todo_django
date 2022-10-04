@@ -11,10 +11,11 @@
     <div class="container">
         <div class="row m-5">
             <div class="col-md-12">
-                <form method="POST" action="{% url 'view_task' %}">
+                <form method="POST">
                     {% csrf_token %}
-                    Are you sure, you want to delete the Item {{delete_items}}...?"
-                    <input class="btn btn-warning" type="submit">
+                    Are you sure, you want to delete the Item...? <h6><b><u>{{task.name}}</u></b></h6>
+                    <input class="btn btn-danger" type="submit" name="confirm" value="Confirm">
+                    <a class="btn btn-success" href="{% url 'view_task' %}">Cancel</a>
                 </form>
             </div>
         </div>
